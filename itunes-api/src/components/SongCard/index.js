@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Image, Row } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 
 const ITUNES_API_ENDPOINT = "https://itunes.apple.com/search";
 
@@ -22,9 +22,11 @@ function SongCard({ query }) {
 
   return (
     <div>
-      <Row>
+      {currentSong && <audio src={currentSong.previewUrl} controls />}
+
+      <div className="d-flex flex-wrap justify-content-center">
         {songs.map((song) => (
-          <Card style={{ width: "20%" }} key={song.trackId}>
+          <Card key={song.trackId} className="w-25 m-3">
             <Card.Img variant="top" src={song.artworkUrl100} />
             <Card.Body>
               <Card.Title>{song.trackName}</Card.Title>
@@ -33,8 +35,7 @@ function SongCard({ query }) {
             </Card.Body>
           </Card>
         ))}
-        {currentSong && <audio src={currentSong.previewUrl} controls />}
-      </Row>
+      </div>
     </div>
   );
 }
