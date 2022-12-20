@@ -4,10 +4,10 @@ import SongSearch from "../SongSearch";
 import SongCard from "../SongCard";
 
 function SongContainer() {
-  const [query, setQuery] = useState("");
+  const [songs, setSongs] = useState([]);
 
   const handleSearch = (searchQuery) => {
-    setQuery(searchQuery);
+    setSongs(searchQuery);
   };
 
   return (
@@ -18,8 +18,12 @@ function SongContainer() {
         </Col>
       </Row>
       <Row className="justify-content-center mt-3">
-        <Col xs={12} md={8}>
-          <SongCard query={query} />
+        <Col>
+          <div className="d-flex flex-wrap justify-content-center">
+            {songs.map((song) => (
+              <SongCard song={song} />
+            ))}
+          </div>
         </Col>
       </Row>
     </Container>

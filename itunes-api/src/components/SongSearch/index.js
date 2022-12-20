@@ -24,7 +24,7 @@ function SongSearch({ onSearch }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSearch(query);
+    onSearch(suggestions);
   };
 
   return (
