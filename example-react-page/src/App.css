@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+@font-face {
+  font-family: Barlow;
+  src: url(./fonts/Barlow/Barlow-Bold.ttf);
+}
+
+.intro {
+  font-family: Barlow;
+  font-size: 4vw;
+}
+
+/* .imgholder > img {
+  : 50
+} */
